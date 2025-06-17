@@ -10,7 +10,8 @@ function App() {
     <>
       <NavBarBoots/>
       <ItemListContainer saludo='Dulces Mexicanos para toda ocasión' />
-      <ItemCount/>
+      <ItemCount stock={200}/>
+      
     </>
   )
 }
