@@ -46,15 +46,14 @@ const productos=[
 
 let error = false;
 
-
-export const getProductos = () =>{
-    return new Promise ((reject, resolve)=>{
-        setTimeput(()=>{
-            if(error){
-                reject('Error al cargar los productos')
-            }else{
-                resolve(productos)
-        }
-        },3000)
-        })
-}
+export const getProductos = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (error) {
+                reject('Error al cargar los productos');
+            } else {
+                resolve(productos);
+            }
+        }, 3000);
+    });
+};
