@@ -3,18 +3,19 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidgetIcons from './CartWidgetIcons';
+import { NavLink } from 'react-router-dom'
 
 function NavBarBoots() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">Dulces Mexicanos</Navbar.Brand>
+        <Navbar.Brand as={NavLink} to='/'>Dulces Mexicanos</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Productos</Nav.Link>
-            <Nav.Link href="#link">Nosotros</Nav.Link>
-            <Nav.Link href="#link">Contacto</Nav.Link>
+            <Nav.Link as={NavLink} to='/productos'>Productos</Nav.Link>
+            <Nav.Link as={NavLink} to='/nosotros'>Nosotros</Nav.Link>
+            <Nav.Link as={NavLink} to='/contacto'>Contacto</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <CartWidgetIcons/>
