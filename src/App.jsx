@@ -13,14 +13,15 @@ function App() {
       <BrowserRouter>
         <NavBarBoots />
         <Routes>
-          <Route path='/' element={<ItemListContainer saludo='Dulces Mexicanos para toda ocasión'  />}/>
+          <Route path='/' element={<ItemListContainer saludo='Dulces Mexicanos para toda ocasión' />} />
           <Route path='/productos/' element={<ItemListContainer saludo='Todos los productos' />} />
           <Route path='/productos/:id' element={<ItemDetailContainer />} />
           <Route path='/nosotros/' element={<ItemListContainer saludo='¿Quiénes somos?' />} />
+          <Route path='/categorias/' element={<ItemListContainer saludo='Categorías' />} />
+          <Route path='/categorias/:categoriasId' element={<ItemListContainer saludo='Productos por categoría' />} />
           <Route path='/contacto/' element={<ContacPage saludo='Contáctanos' />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
-
       </BrowserRouter>
     </>
   )
