@@ -6,6 +6,7 @@ import CartWidgetIcons from './CartWidgetIcons';
 import { NavLink } from 'react-router-dom';
 
 function NavBarBoots() {
+  console.log('navbar')
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>

@@ -6,11 +6,15 @@ import ItemDetailContainer from './components/ItemDetailContainer.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ErrorPage from './components/ErrorPage.jsx'
 import ContacPage from './components/ContacPage.jsx'
+import { CartProvider } from './context/CartContext.jsx'
+import CartConteiner from './components/CartConteiner.jsx'
 
 function App() {
+  
   return (
     <>
       <BrowserRouter>
+      <CartProvider>
         <NavBarBoots />
         <Routes>
           <Route path='/' element={<ItemListContainer saludo='Dulces Mexicanos para toda ocasión' />} />
@@ -20,8 +24,10 @@ function App() {
           <Route path='/categorias/' element={<ItemListContainer saludo='Categorías' />} />
           <Route path='/categorias/:categoriasId' element={<ItemListContainer saludo='Productos por categoría' />} />
           <Route path='/contacto/' element={<ContacPage saludo='Contáctanos' />} />
+          <Route path='/carrito' element={<CartConteiner />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
+        </CartProvider>
       </BrowserRouter>
     </>
   )
