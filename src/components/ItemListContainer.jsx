@@ -1,40 +1,46 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { getProductos } from "../mock/AsyncMock";
-import ItemList from "./ItemList";
-import LoaderComponent from "./LoaderComponent";
+import ItemList from "./ItemList"
+import LoaderComponent from "./LoaderComponent"
+import { collection, getDocs, query, where } from "firebase/firestore"
+import { database } from "../service/firebase"
 
 const ItemListContainer = (props) => {
-    const { categoriasId } = useParams();
+    const { categoriasId } = useParams()
     const [data, setData] = useState([])
-    const [loading, setLoading] = useState(true) // <--- define loading
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         setLoading(true)
-        getProductos()
-            .then((respuesta) => {
+        const productCollection = categoriasId
+        ? query()(collection(database, "items"), where("categorias", "==", categoriasId))
+        : collection(database, "items")
+        getDocs(productCollection)
+            .then((res) => {
+                const list = res.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data()
+                }))
+                
                 if (categoriasId) {
-                    setData(respuesta.filter((prod) => prod.categoria === categoriasId));
+                    setData(list.filter((prod) => prod.categoria === categoriasId))
                 } else {
-                    setData(respuesta);
+                    setData(list)
                 }
             })
             .catch((error) => console.log(error))
-            .finally(() => {
-                setLoading(false)
-            })
+            .finally(() => setLoading(false))
     }, [categoriasId])
 
     return (
         <>
-        {
-            loading 
-            ? <LoaderComponent/>
-            : <div>
-                <h1 style={{ textAlign: 'center', color: '#f57109', margin:'2rem' }}>{props.saludo}</h1>
-                <ItemList data={data}/>
-            </div>
-        }
+            {loading
+                ? <LoaderComponent />
+                : <div>
+                    <h1 style={{ textAlign: 'center', color: '#f57109', margin: '2rem' }}>{props.saludo}</h1>
+                    <ItemList data={data} />
+                </div>
+            }
         </>
     )
 }
