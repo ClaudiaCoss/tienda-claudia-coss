@@ -24,7 +24,7 @@ const ItemDetail = ({ detail }) => {
             <p style={{ textAlign: 'center' }}>Stock: {detail.stock}</p>
             <div className="d-flex justify-content-center" style={{ width: '100%' }}>
                 {purchase
-                    ? <Link className='btn btn-dark' to='/productos'>Volver a productos</Link>
+                    ? <Link className='btn btn-dark' to='/cart'>Ver carrito</Link>
                     : <ItemCount stock={detail.stock} onAdd={onAdd} />}
             </div>
         </div>

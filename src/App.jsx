@@ -24,7 +24,7 @@ function App() {
           <Route path='/categorias/' element={<ItemListContainer saludo='Categorías' />} />
           <Route path='/categorias/:categoriasId' element={<ItemListContainer saludo='Productos por categoría' />} />
           <Route path='/contacto/' element={<ContacPage saludo='Contáctanos' />} />
-          <Route path='/carrito' element={<CartConteiner />} />
+          <Route path='/cart' element={<CartConteiner />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
         </CartProvider>

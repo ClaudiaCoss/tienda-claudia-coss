@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CartContext } from '../context/CartContext.jsx'
 
 const CartView = () => {
-    const {cart, clear, removeItem} = useContext(CartContext)
+  const { cart, removeItem, clearCart } = useContext(CartContext)
 
   return (
     <div>
@@ -22,10 +23,10 @@ const CartView = () => {
         }
       </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
-            <button className='btn btn-danger' onClick={clear}>Vaciar Carrito</button>
-            <h3>Total: ${cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}.00 MXN</h3>
-            <button className='btn btn-success' onClick={() => alert('Compra realizada!')}>Finalizar Compra</button>
-    </div>
+    <button className='btn btn-danger' onClick={clearCart}>Vaciar Carrito</button>
+    <h3>Total: ${cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}.00 MXN</h3>
+    <button className='btn btn-success' onClick={() => alert('Compra realizada!')}>Finalizar Compra</button>
+</div>
     </div>
   )
 }
