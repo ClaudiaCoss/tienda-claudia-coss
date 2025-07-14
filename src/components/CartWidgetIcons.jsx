@@ -1,15 +1,15 @@
 import { IoCart } from "react-icons/io5";
-import {Badge} from "react-bootstrap";
-import{ useContext } from "react";
+import { Badge } from "react-bootstrap";
+import { useContext } from "react";
 import { CartContext } from "../context/CartContext.jsx";
 
 const CartWidgetIcons = () => {
-    const { cart } = useContext(CartContext);
-    console.log(cart);
+    const { cartQuantity } = useContext(CartContext);
+    
     return (
         <div>
-            <IoCart fontSize={'2rem'} color="#40795e"/>
-            <Badge bg="danger">0</Badge>
+            <IoCart fontSize={'2rem'} color="black"/>
+            <Badge bg="danger">{cartQuantity()}</Badge>
         </div>
     );
 };

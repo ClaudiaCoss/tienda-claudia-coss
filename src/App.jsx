@@ -8,6 +8,7 @@ import ErrorPage from './components/ErrorPage.jsx'
 import ContacPage from './components/ContacPage.jsx'
 import { CartProvider } from './context/CartContext.jsx'
 import CartConteiner from './components/CartConteiner.jsx'
+import Checkout from './components/Checkout.jsx'
 
 function App() {
   
@@ -25,6 +26,7 @@ function App() {
           <Route path='/categorias/:categoriasId' element={<ItemListContainer saludo='Productos por categoría' />} />
           <Route path='/contacto/' element={<ContacPage saludo='Contáctanos' />} />
           <Route path='/cart' element={<CartConteiner />} />
+          <Route path='/checkout' element={<Checkout />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
         </CartProvider>
