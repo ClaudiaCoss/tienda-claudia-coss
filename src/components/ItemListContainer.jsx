@@ -19,11 +19,11 @@ const ItemListContainer = (props) => {
                     id: doc.id,
                     ...doc.data()
                 }))
-                
+                // Solo filtra si hay categoriasId
                 if (categoriasId) {
                     setData(list.filter((prod) => prod.categoria === categoriasId))
                 } else {
-                    setData(list)
+                    setData(list) // En el home y en /productos muestra todos
                 }
             })
             .catch((error) => console.log(error))
