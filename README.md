@@ -10,6 +10,7 @@ Proyecto realizado con las bases de react con javascript en Coderhouse.
 4. Ejecutar el comando 'npm run dev' para levantarlo en el servidor local.
 
 ### Versión Host
+Para ver el proyecto online, ingresar al siguiente link: [Tienda Claudia Coss](https://tienda-claudia-coss.vercel.app/)
 
 ### Librerías utlizadas
 -[React Bootstrap](https://react-bootstrap.netlify.app/) Para los estilos.
